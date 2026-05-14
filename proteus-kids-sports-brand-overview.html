@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Proteus Kids Sports — Brand Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy:   #0D1F4E;
+    --teal:   #00C2A8;
+    --green:  #3DD66B;
+    --orange: #FF8C00;
+    --purple: #7B3FBE;
+    --yellow: #FFD600;
+    --white:  #FFFFFF;
+    --offwhite: #F4F8FF;
+    --light-teal: #E0FAF7;
+    --text-body: #1A2B4A;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--offwhite);
+    color: var(--text-body);
+    min-height: 100vh;
+  }
+
+  /* ── HERO HEADER ── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 64px 40px 52px;
+    text-align: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 10% 50%, rgba(0,194,168,.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 70% at 90% 30%, rgba(123,63,190,.22) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 50% 110%, rgba(61,214,107,.12) 0%, transparent 70%);
+  }
+  .hero-eyebrow {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .hero-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(38px, 6vw, 72px);
+    color: var(--white);
+    line-height: 1.05;
+    position: relative;
+  }
+  .hero-title span { color: var(--green); }
+  .hero-tagline {
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    position: relative;
+  }
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+    position: relative;
+  }
+  .hero-divider span {
+    display: block;
+    height: 2px;
+    width: 60px;
+    background: linear-gradient(90deg, transparent, var(--teal));
+    border-radius: 2px;
+  }
+  .hero-divider span:last-child {
+    background: linear-gradient(90deg, var(--teal), transparent);
+  }
+  .hero-divider .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+
+  /* ── PAGE WRAPPER ── */
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 56px 32px 80px;
+  }
+
+  /* ── SECTION TITLES ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 30px;
+    color: var(--navy);
+    margin-bottom: 18px;
+    line-height: 1.1;
+  }
+  .section-body {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text-body);
+    max-width: 720px;
+  }
+  .section-body strong { color: var(--navy); font-weight: 800; }
+
+  /* ── MISSION / VISION CARD ── */
+  .mv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 36px;
+    margin-bottom: 64px;
+  }
+  @media (max-width: 620px) { .mv-grid { grid-template-columns: 1fr; } }
+  .mv-card {
+    border-radius: 20px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mv-card.mission {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .mv-card.vision {
+    background: var(--light-teal);
+    border: 2px solid var(--teal);
+  }
+  .mv-card::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    opacity: .08;
+  }
+  .mv-card.mission::after { background: var(--teal); }
+  .mv-card.vision::after  { background: var(--navy); }
+  .mv-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,.12);
+    border-radius: 30px;
+    padding: 4px 12px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .mv-card.vision .mv-badge {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .mv-card.mission .mv-badge { color: var(--teal); }
+  .mv-card-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .mv-card.mission .mv-card-title { color: var(--green); }
+  .mv-card.vision  .mv-card-title { color: var(--navy); }
+  .mv-card p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .mv-card.mission p { color: rgba(255,255,255,.88); }
+  .mv-card.vision  p { color: var(--text-body); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal) 0%, var(--green) 50%, transparent 100%);
+    border-radius: 2px;
+    margin: 60px 0;
+    opacity: .35;
+  }
+
+  /* ── VALUES GRID ── */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+    margin-bottom: 64px;
+  }
+  .value-card {
+    border-radius: 18px;
+    padding: 28px 22px;
+    background: var(--white);
+    box-shadow: 0 4px 24px rgba(13,31,78,.07);
+    border-top: 5px solid var(--teal);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 36px rgba(13,31,78,.12);
+  }
+  .value-card:nth-child(1) { border-top-color: var(--orange); }
+  .value-card:nth-child(2) { border-top-color: var(--green);  }
+  .value-card:nth-child(3) { border-top-color: var(--teal);   }
+  .value-card:nth-child(4) { border-top-color: var(--purple); }
+  .value-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .value-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .value-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #4a5878;
+  }
+
+  /* ── AUDIENCE ── */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+    margin-bottom: 64px;
+  }
+  .audience-card {
+    border-radius: 18px;
+    padding: 28px 24px;
+    background: var(--navy);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .audience-card::before {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.05);
+  }
+  .audience-card:nth-child(2) { background: #0B3D42; }
+  .audience-card:nth-child(3) { background: #1C1047; }
+  .aud-icon { font-size: 30px; margin-bottom: 10px; display: block; }
+  .aud-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+  .aud-desc { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,.8); }
+
+  /* ── PERSONALITY ── */
+  .personality-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+    margin-bottom: 36px;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .5px;
+  }
+  .pill.energetic  { background: #FFF3E0; color: var(--orange); border: 2px solid var(--orange); }
+  .pill.playful    { background: #E8F5E9; color: #2E7D32;        border: 2px solid var(--green);  }
+  .pill.approachable { background: var(--light-teal); color: #00796B; border: 2px solid var(--teal); }
+  .pill.motivating { background: #EDE7F6; color: var(--purple); border: 2px solid var(--purple); }
+  .personality-body {
+    font-size: 15.5px;
+    line-height: 1.78;
+    color: var(--text-body);
+    max-width: 720px;
+    margin-bottom: 64px;
+  }
+
+  /* ── POSITIONING ── */
+  .positioning-block {
+    background: var(--navy);
+    border-radius: 24px;
+    padding: 48px 44px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 32px;
+    margin-bottom: 72px;
+  }
+  .positioning-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 70% at 0% 50%, rgba(0,194,168,.2) 0%, transparent 65%),
+      radial-gradient(ellipse 45% 65% at 100% 30%, rgba(123,63,190,.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .positioning-quote {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(22px, 3.5vw, 36px);
+    color: var(--white);
+    line-height: 1.3;
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .positioning-quote em {
+    font-style: normal;
+    color: var(--green);
+  }
+  .positioning-sub {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,.82);
+    max-width: 640px;
+    position: relative;
+  }
+  .quote-mark {
+    font-family: 'Fredoka One', cursive;
+    font-size: 80px;
+    color: var(--teal);
+    opacity: .25;
+    line-height: 1;
+    display: block;
+    margin-bottom: -20px;
+  }
+
+  /* ── TAGLINE CLOSER ── */
+  .closer {
+    text-align: center;
+    padding: 48px 24px 0;
+  }
+  .closer-headline {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(28px, 5vw, 52px);
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .closer-headline span { color: var(--teal); }
+  .closer-sub {
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  .closer-dot-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .closer-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ── FOOTER BAND ── */
+  .footer-band {
+    background: var(--navy);
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-brand {
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    color: var(--white);
+  }
+  .footer-brand span { color: var(--green); }
+  .footer-note {
+    font-size: 12px;
+    color: rgba(255,255,255,.45);
+    font-weight: 600;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp .6s ease both; }
+  .hero .hero-eyebrow  { animation-delay: .1s; }
+  .hero .hero-title    { animation-delay: .2s; }
+  .hero .hero-tagline  { animation-delay: .3s; }
+  .hero .hero-divider  { animation-delay: .4s; }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <p class="hero-eyebrow">Brand Strategy Document · 2024</p>
+  <h1 class="hero-title">Proteus <span>Kids</span> Sports</h1>
+  <p class="hero-tagline">Brand Overview &amp; Positioning Guide</p>
+  <div class="hero-divider">
+    <span></span><div class="dot"></div><span></span>
+  </div>
+</header>
+
+<!-- ── MAIN ── -->
+<main class="page">
+
+  <!-- MISSION & VISION -->
+  <p class="section-label">01 — Foundation</p>
+  <h2 class="section-title">Mission &amp; Vision</h2>
+  <p class="section-body">
+    Proteus Kids Sports was built on a simple belief: every child deserves a sporting experience that is <strong>joyful, inclusive, and genuinely transformative</strong>. We exist to give kids the skills, confidence, and love of movement that stay with them for life — and to give parents and educators a brand they can trust completely.
+  </p>
+
+  <div class="mv-grid">
+    <div class="mv-card mission">
+      <div class="mv-badge">🎯 Our Mission</div>
+      <div class="mv-card-title">Why We Exist</div>
+      <p>To inspire children aged 5–12 to <strong style="color:var(--teal)">adapt, grow, and discover</strong> what they are capable of through the power of sport — creating experiences so fun and rewarding that kids can't wait to come back.</p>
+    </div>
+    <div class="mv-card vision">
+      <div class="mv-badge">🌟 Our Vision</div>
+      <div class="mv-card-title">Where We're Headed</div>
+      <p>To become the world's most loved kids sports brand — the name parents trust, coaches champion, and children remember forever as the place where they first fell in love with being active.</p>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- CORE VALUES -->
+  <p class="section-label">02 — What We Stand For</p>
+  <h2 class="section-title">Core Values</h2>
+  <p class="section-body">
+    Four principles guide every program, product, and interaction at Proteus Kids Sports. They aren't just words on a wall — they shape how we design our sessions, write our rewards, and show up for every child.
+  </p>
+
+  <div class="values-grid">
+    <div class="value-card">
+      <span class="value-icon">🎉</span>
+      <div class="value-name">Fun First</div>
+      <p class="value-desc">Sport should feel like the best part of a child's week. We design every session to spark smiles, laughter, and the kind of excitement kids talk about at dinner.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🌱</span>
+      <div class="value-name">Growth Mindset</div>
+      <p class="value-desc">We celebrate effort over outcome. Every stumble is a stepping stone. Proto's motto — <em>"I adapt. I grow. I can do anything!"</em> — lives in every interaction.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🤝</span>
+      <div class="value-name">Engagement</div>
+      <p class="value-desc">From sticker rewards to progress trackers and certificate moments, we keep kids motivated, connected, and genuinely invested in their own journey.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🏆</span>
+      <div class="value-name">Achievement</div>
+      <p class="value-desc">We recognise every milestone — big or small. Personal bests, teamwork breakthroughs, and acts of courage are all worthy of celebration at Proteus.</p>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- TARGET AUDIENCE -->
+  <p class="section-label">03 — Who We Serve</p>
+  <h2 class="section-title">Target Audience</h2>
+  <p class="section-body">
+    Proteus Kids Sports speaks to three distinct audiences simultaneously — each with different needs, all united by the desire for a positive, confidence-building sports experience.
+  </p>
+
+  <div class="audience-grid">
+    <div class="audience-card">
+      <span class="aud-icon">👧🏽</span>
+      <div class="aud-name">Kids Ages 5–12</div>
+      <p class="aud-desc">Our primary audience and biggest champions. They want adventure, friends, rewards, and to feel genuinely good at something. Proto is their mascot, their cheerleader, and their role model.</p>
+    </div>
+    <div class="audience-card">
+      <span class="aud-icon">👨‍👩‍👧</span>
+      <div class="aud-name">Parents &amp; Caregivers</div>
+      <p class="aud-desc">They choose us because they trust us. They want qualified programs, visible progress, and the assurance that their child is safe, happy, and building life-long habits.</p>
+    </div>
+    <div class="audience-card">
+      <span class="aud-icon">🏫</span>
+      <div class="aud-name">Schools &amp; Clubs</div>
+      <p class="aud-desc">Institutional partners who need curriculum-aligned, professionally branded programs that boost participation, serve diverse abilities, and reflect positively on their organisation.</p>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- BRAND PERSONALITY -->
+  <p class="section-label">04 — Voice &amp; Character</p>
+  <h2 class="section-title">Brand Personality</h2>
+
+  <div class="personality-row">
+    <div class="pill energetic">⚡ Energetic</div>
+    <div class="pill playful">🎈 Playful</div>
+    <div class="pill approachable">👋 Approachable</div>
+    <div class="pill motivating">🚀 Motivating</div>
+  </div>
+
+  <p class="personality-body">
+    Proteus Kids Sports speaks with the warmth of a favourite coach and the energy of a best friend. Our tone is <strong>bold without being loud</strong>, encouraging without being patronising, and always age-appropriately fun. We never talk down to children, and we never make sport feel like a chore.<br /><br />
+    Our mascot, <strong>Proto the Protean</strong>, embodies this personality perfectly — a shape-shifting, ever-adapting character who celebrates every kid's unique strengths. Whether Proto is playing football, swimming, or picking up a cricket bat for the first time, the message is the same: <em>you belong here, and you can do this</em>. Every visual, every word, and every reward reinforces that spirit. Colourful without being chaotic. Dynamic without being overwhelming. Inclusive by design.
+  </p>
+
+  <hr class="divider" />
+
+  <!-- POSITIONING STATEMENT -->
+  <p class="section-label">05 — Market Positioning</p>
+  <h2 class="section-title">Brand Positioning Statement</h2>
+
+  <div class="positioning-block">
+    <span class="quote-mark">"</span>
+    <p class="positioning-quote">
+      For <em>kids who are ready to discover what sport can do for them</em>, Proteus Kids Sports is the <em>multi-sport experience that grows with every child</em> — because we believe the right environment, the right encouragement, and a little bit of Proto magic can turn any beginner into a <em>lifelong mover</em>.
+    </p>
+    <p class="positioning-sub">
+      Unlike generic after-school programs or single-sport academies, Proteus Kids Sports combines expertly designed multi-sport curriculum with a rich reward and recognition ecosystem — all wrapped in a brand so vibrant, so warm, and so child-centred that kids genuinely look forward to every session. We don't just teach sport. We build confidence, friendships, and the growth mindset that lasts a lifetime.
+    </p>
+  </div>
+
+  <!-- CLOSER -->
+  <div class="closer">
+    <h3 class="closer-headline">I Adapt. I Grow. I Can Do <span>Anything.</span></h3>
+    <p class="closer-sub">Play · Learn · Grow · Together</p>
+    <div class="closer-dot-row">
+      <div class="closer-dot" style="background:var(--orange)"></div>
+      <div class="closer-dot" style="background:var(--green)"></div>
+      <div class="closer-dot" style="background:var(--teal)"></div>
+      <div class="closer-dot" style="background:var(--purple)"></div>
+      <div class="closer-dot" style="background:var(--yellow)"></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer-band">
+  <div class="footer-brand">Proteus <span>Kids</span> Sports</div>
+  <div class="footer-note">Brand Strategy Document — Confidential · 2024</div>
+</footer>
+
+</body>
+</html>
