@@ -12,510 +12,137 @@
         }
 
         :root {
-            --primary-blue: #0052CC;
-            --primary-green: #2DD4BF;
-            --primary-orange: #FF9500;
-            --primary-purple: #9333EA;
-            --dark-navy: #0F172A;
-            --light-bg: #F0F9FF;
-            --accent-teal: #06B6D4;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --primary-color: #2ecc71;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --tertiary-color: #f39c12;
+            --dark-text: #2c3e50;
+            --light-bg: #ecf0f1;
+            --white: #ffffff;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --border-radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-navy);
-            background: white;
+            color: var(--dark-text);
+            background-color: var(--white);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* ==================== HEADER ==================== */
+        /* ============ HEADER & NAVIGATION ============ */
         header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            box-shadow: var(--shadow);
         }
 
         nav {
-            max-width: 1400px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .logo {
             font-size: 1.8rem;
             font-weight: 900;
-            color: white;
+            color: var(--white);
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            animation: slideInLeft 0.8s ease;
+            text-decoration: none;
         }
 
         .logo-emoji {
-            font-size: 2rem;
-            animation: float 3s ease-in-out infinite;
+            font-size: 2.2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
-            animation: slideInRight 0.8s ease;
         }
 
         .nav-links a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
             font-weight: 600;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-green), var(--primary-orange));
-            transition: width 0.3s ease;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
         }
 
         .nav-links a:hover {
-            color: var(--primary-green);
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
         }
 
-        /* ==================== HERO SECTION ==================== */
+        /* ============ HERO SECTION ============ */
         .hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 50%, var(--accent-teal) 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
             padding: 6rem 2rem;
             text-align: center;
+            color: var(--white);
             position: relative;
             overflow: hidden;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .hero::before {
-            content: '⚽ 🏀 🎾 🏐 🏊 🏃';
+            content: '';
             position: absolute;
-            font-size: 4rem;
-            opacity: 0.1;
-            animation: float 8s ease-in-out infinite;
-            top: 10%;
-            left: 5%;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
         }
 
-        .hero::after {
-            content: '🏆 ⭐ 🎯 🎪 🎨 🎭';
-            position: absolute;
-            font-size: 4rem;
-            opacity: 0.1;
-            animation: float 8s ease-in-out infinite reverse;
-            bottom: 10%;
-            right: 5%;
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
         }
 
         .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
             position: relative;
-            z-index: 10;
-            max-width: 900px;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-character {
-            font-size: 15rem;
-            margin: 0 0 2rem;
-            animation: bounce 2s ease-in-out infinite;
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            color: white;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            line-height: 1.2;
-            animation: slideInDown 1s ease;
-        }
-
-        .hero h1 span {
-            display: inline-block;
-            background: linear-gradient(120deg, var(--primary-green), var(--primary-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 2s ease-in-out infinite;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 2rem;
-            animation: fadeIn 1s ease 0.4s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .btn {
-            padding: 1.2rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-orange), #FF6B00);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 149, 0, 0.4);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary-blue);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.4);
-        }
-
-        /* ==================== FEATURES SECTION ==================== */
-        .features {
-            padding: 6rem 2rem;
-            background: var(--light-bg);
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 4rem;
-            color: var(--dark-navy);
-            animation: slideInDown 0.8s ease;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border-top: 5px solid var(--primary-green);
-        }
-
-        .feature-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-blue);
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* ==================== PROGRAMS SECTION ==================== */
-        .programs {
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .program-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            position: relative;
-            cursor: pointer;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .program-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-green), var(--primary-orange));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-            z-index: 10;
-        }
-
-        .program-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .program-emoji {
-            font-size: 5rem;
-            padding: 2rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--light-bg), white);
-        }
-
-        .program-content {
-            padding: 1.5rem;
-        }
-
-        .program-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark-navy);
-        }
-
-        .program-content p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* ==================== ACHIEVEMENTS SECTION ==================== */
-        .achievements {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            color: white;
-            text-align: center;
-        }
-
-        .achievements .section-title {
-            color: white;
-        }
-
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .badge:hover {
-            transform: scale(1.1) rotateZ(5deg);
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2);
-        }
-
-        .badge-emoji {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-            animation: rotate 4s linear infinite;
-        }
-
-        .badge:hover .badge-emoji {
-            transform: scale(1.2) rotateZ(-10deg);
-        }
-
-        .badge-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        /* ==================== CTA SECTION ==================== */
-        .cta-section {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, var(--primary-orange), var(--primary-green));
-            text-align: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            border-radius: 30px;
-            position: relative;
-            overflow: hidden;
-            margin: 4rem 2rem;
-        }
-
-        .cta-section::before {
-            content: '🎉 🎊 🏆 ⭐ 🎯 🎪';
-            position: absolute;
-            font-size: 3rem;
-            opacity: 0.15;
-            animation: float 10s ease-in-out infinite;
-            top: -20%;
-            left: -10%;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
-            animation: slideInDown 0.8s ease;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        /* ==================== FOOTER ==================== */
-        footer {
-            background: var(--dark-navy);
-            color: white;
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: var(--primary-green);
-            font-size: 1.1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary-green);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* ==================== ANIMATIONS ==================== */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            animation: slideInDown 0.8s ease-out;
         }
 
         @keyframes slideInDown {
@@ -529,7 +156,13 @@
             }
         }
 
-        @keyframes fadeInUp {
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -540,236 +173,904 @@
             }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.2);
+            border: 3px dashed var(--white);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            text-decoration: none;
+            animation: slideInUp 0.8s ease-out 0.4s both;
         }
 
-        /* ==================== RESPONSIVE ==================== */
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:active {
+            transform: translateY(-2px);
+        }
+
+        /* ============ PROGRAMS SECTION ============ */
+        .programs {
+            padding: 5rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-text);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            border-radius: 3px;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .sport-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .program-card p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        /* ============ ACHIEVEMENTS SECTION ============ */
+        .achievements {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--white);
+        }
+
+        .achievements .section-title {
+            color: var(--white);
+        }
+
+        .achievements .section-title::after {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: var(--white);
+            transform: translateY(-4px);
+        }
+
+        .value-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-container {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge-placeholder {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px dashed var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* ============ MERCHANDISE CAROUSEL ============ */
+        .merchandise {
+            padding: 5rem 2rem;
+            background-color: var(--white);
+        }
+
+        .carousel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .merch-card {
+            background: var(--light-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .merch-card:hover {
+            transform: scale(1.05) translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .merch-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--white);
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .merch-info {
+            padding: 1.5rem;
+        }
+
+        .merch-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .merch-description {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .merch-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        /* ============ DIGITAL ASSETS SECTION ============ */
+        .digital-assets {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+        }
+
+        .digital-assets .section-title {
+            color: var(--white);
+        }
+
+        .digital-assets .section-title::after {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .assets-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .dashboard-mockup {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dashboard-header h4 {
+            font-size: 1.2rem;
+        }
+
+        .progress-bar {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .progress-fill {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-inner {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--tertiary-color));
+            width: 75%;
+            border-radius: 10px;
+            animation: slideRight 1s ease-out;
+        }
+
+        @keyframes slideRight {
+            from {
+                width: 0;
+            }
+            to {
+                width: 75%;
+            }
+        }
+
+        .asset-list {
+            list-style: none;
+        }
+
+        .asset-list li {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .asset-list li::before {
+            content: '✓';
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .assets-features {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            min-width: 60px;
+        }
+
+        .feature-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
         @media (max-width: 768px) {
+            .assets-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: var(--dark-text);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+            padding-left: 0.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-icon:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #95a5a6;
+        }
+
+        /* ============ RESPONSIVE DESIGN ============ */
+        @media (max-width: 1024px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero-character {
-                font-size: 8rem;
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .programs,
+            .achievements,
+            .merchandise,
+            .digital-assets {
+                padding: 3rem 1.5rem;
             }
 
             .section-title {
                 font-size: 2rem;
             }
 
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
+            .carousel {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
+        }
 
-            .hero-buttons {
-                flex-direction: column;
-            }
+        /* ============ UTILITY CLASSES ============ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-            .btn {
-                width: 100%;
-            }
+        .mt-4 {
+            margin-top: 2rem;
+        }
 
-            .cta-section h2 {
-                font-size: 1.8rem;
-            }
+        .text-center {
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
+    <!-- ============ HEADER & NAVIGATION ============ -->
     <header>
         <nav>
-            <div class="logo">
-                <span class="logo-emoji">🦎</span>
-                <span>PROTEUS</span>
-            </div>
+            <a href="#" class="logo">
+                <span class="logo-emoji">⚽</span>
+                <span>Proteus Kids</span>
+            </a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#programs">Programs</a></li>
                 <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#merchandise">Merchandise</a></li>
+                <li><a href="#dashboard">Parent Dashboard</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero">
         <div class="hero-content">
-            <div class="hero-character">🦎</div>
-            <h1>Play. <span>Learn. Grow.</span> Together.</h1>
-            <p>Where kids discover the joy of sports and build confidence one game at a time.</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary">Get Started Now</button>
-                <button class="btn btn-secondary">Learn More</button>
+            <h1>Play. Learn. Grow. Together.</h1>
+            <p>Join Proteus Kids Sports and discover the champion within you!</p>
+            <div class="hero-image">
+                🎨 Proto Mascot Hero Visual Placeholder
             </div>
+            <button class="cta-button">View Our Programs</button>
         </div>
     </section>
 
-    <!-- FEATURES SECTION -->
-    <section class="features">
-        <h2 class="section-title">Why Choose Proteus?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>Safe & Inclusive</h3>
-                <p>A welcoming community where every child feels valued, respected, and celebrated for who they are.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📈</div>
-                <h3>Skill Development</h3>
-                <p>Progressive training programs that build real athletic abilities while boosting confidence and resilience.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💪</div>
-                <h3>Active & Healthy</h3>
-                <p>Building stronger bodies and happier minds through sports, movement, and healthy lifestyle habits.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROGRAMS SECTION -->
+    <!-- ============ PROGRAMS SECTION ============ -->
     <section class="programs" id="programs">
         <h2 class="section-title">Our Sports Programs</h2>
         <div class="programs-grid">
             <div class="program-card">
-                <div class="program-emoji">⚽</div>
-                <div class="program-content">
-                    <h3>Football</h3>
-                    <p>Master teamwork, strategy, and precision on the pitch.</p>
-                </div>
+                <div class="sport-icon">⚽</div>
+                <h3>Football</h3>
+                <p>Master the beautiful game with our experienced coaches</p>
             </div>
             <div class="program-card">
-                <div class="program-emoji">🏀</div>
-                <div class="program-content">
-                    <h3>Basketball</h3>
-                    <p>Develop agility, coordination, and competitive spirit.</p>
-                </div>
+                <div class="sport-icon">🏀</div>
+                <h3>Basketball</h3>
+                <p>Shoot, dribble, and soar to new heights</p>
             </div>
             <div class="program-card">
-                <div class="program-emoji">🎾</div>
-                <div class="program-content">
-                    <h3>Tennis</h3>
-                    <p>Build focus, technique, and individual achievement.</p>
-                </div>
+                <div class="sport-icon">🎾</div>
+                <h3>Tennis</h3>
+                <p>Serve, volley, and ace your way to success</p>
             </div>
             <div class="program-card">
-                <div class="program-emoji">🏊</div>
-                <div class="program-content">
-                    <h3>Swimming</h3>
-                    <p>Discover confidence and endurance in the water.</p>
-                </div>
+                <div class="sport-icon">🏊</div>
+                <h3>Swimming</h3>
+                <p>Dive into a world of aquatic excellence</p>
             </div>
             <div class="program-card">
-                <div class="program-emoji">🏃</div>
-                <div class="program-content">
-                    <h3>Athletics</h3>
-                    <p>Push limits, break records, and reach new heights.</p>
-                </div>
+                <div class="sport-icon">🏃</div>
+                <h3>Athletics</h3>
+                <p>Run, jump, and throw your personal best</p>
             </div>
             <div class="program-card">
-                <div class="program-emoji">🏏</div>
-                <div class="program-content">
-                    <h3>Cricket</h3>
-                    <p>Experience tactical thinking and team harmony.</p>
-                </div>
+                <div class="sport-icon">🏏</div>
+                <h3>Cricket</h3>
+                <p>Bat, bowl, and field like a champion</p>
             </div>
         </div>
     </section>
 
-    <!-- ACHIEVEMENTS SECTION -->
+    <!-- ============ ACHIEVEMENTS SECTION ============ -->
     <section class="achievements" id="achievements">
-        <h2 class="section-title">Collect Your Achievements</h2>
-        <div class="achievements-grid">
-            <div class="badge">
-                <div class="badge-emoji">🏆</div>
-                <div class="badge-title">Excellence</div>
+        <h2 class="section-title">Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🏆</div>
+                <h3>Excellence</h3>
+                <p>Strive for the highest standards in every endeavor</p>
             </div>
-            <div class="badge">
-                <div class="badge-emoji">⭐</div>
-                <div class="badge-title">Focus</div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Teamwork</h3>
+                <p>Together we achieve more than we do alone</p>
             </div>
-            <div class="badge">
-                <div class="badge-emoji">🤝</div>
-                <div class="badge-title">Teamwork</div>
+            <div class="value-card">
+                <div class="value-icon">💪</div>
+                <h3>Effort</h3>
+                <p>Give your best every single day</p>
             </div>
-            <div class="badge">
-                <div class="badge-emoji">💪</div>
-                <div class="badge-title">Effort</div>
+            <div class="value-card">
+                <div class="value-icon">📈</div>
+                <h3>Growth</h3>
+                <p>Every challenge is an opportunity to improve</p>
             </div>
-            <div class="badge">
-                <div class="badge-emoji">🎯</div>
-                <div class="badge-title">Focus</div>
-            </div>
-            <div class="badge">
-                <div class="badge-emoji">🚀</div>
-                <div class="badge-title">Growth</div>
+        </div>
+
+        <div class="text-center mt-4">
+            <h3 style="margin-bottom: 2rem;">Earn Your Badges & Certificates</h3>
+            <div class="badge-container">
+                <div class="badge-placeholder">🥇 Gold<br>Badge</div>
+                <div class="badge-placeholder">🥈 Silver<br>Badge</div>
+                <div class="badge-placeholder">🥉 Bronze<br>Badge</div>
+                <div class="badge-placeholder">⭐ Star<br>Certificate</div>
             </div>
         </div>
     </section>
 
-    <!-- CTA SECTION -->
-    <section class="cta-section">
-        <h2>Ready to Join the Adventure?</h2>
-        <p>Start your Proteus journey today and discover what you can achieve!</p>
-        <button class="btn btn-primary">Enroll Now</button>
+    <!-- ============ MERCHANDISE CAROUSEL ============ -->
+    <section class="merchandise" id="merchandise">
+        <div class="carousel-container">
+            <h2 class="section-title">Proto-Themed Merchandise</h2>
+            <div class="carousel">
+                <div class="merch-card">
+                    <div class="merch-image">
+                        👕 Proto T-Shirt<br>Product Image Placeholder
+                    </div>
+                    <div class="merch-info">
+                        <div class="merch-name">Proto T-Shirt</div>
+                        <div class="merch-description">Comfortable and colorful</div>
+                        <div class="merch-price">$14.99</div>
+                    </div>
+                </div>
+
+                <div class="merch-card">
+                    <div class="merch-image">
+                        🧢 Proto Cap<br>Product Image Placeholder
+                    </div>
+                    <div class="merch-info">
+                        <div class="merch-name">Proto Cap</div>
+                        <div class="merch-description">Keep the sun out, style in</div>
+                        <div class="merch-price">$12.99</div>
+                    </div>
+                </div>
+
+                <div class="merch-card">
+                    <div class="merch-image">
+                        💧 Water Bottle<br>Product Image Placeholder
+                    </div>
+                    <div class="merch-info">
+                        <div class="merch-name">Proto Water Bottle</div>
+                        <div class="merch-description">Stay hydrated in style</div>
+                        <div class="merch-price">$16.99</div>
+                    </div>
+                </div>
+
+                <div class="merch-card">
+                    <div class="merch-image">
+                        🎒 Backpack<br>Product Image Placeholder
+                    </div>
+                    <div class="merch-info">
+                        <div class="merch-name">Proto Backpack</div>
+                        <div class="merch-description">Carry everything in comfort</div>
+                        <div class="merch-price">$34.99</div>
+                    </div>
+                </div>
+
+                <div class="merch-card">
+                    <div class="merch-image">
+                        🧦 Socks Bundle<br>Product Image Placeholder
+                    </div>
+                    <div class="merch-info">
+                        <div class="merch-name">Proto Socks (5-Pack)</div>
+                        <div class="merch-description">Colorful and cozy</div>
+                        <div class="merch-price">$9.99</div>
+                    </div>
+                </div>
+
+                <div class="merch-card">
+                    <div class="merch-image">
+                        🏅 Sticker Pack<br>Product Image Placeholder
+                    </div>
+                    <div class="merch-info">
+                        <div class="merch-name">Proto Sticker Pack</div>
+                        <div class="merch-description">Decorate your world</div>
+                        <div class="merch-price">$4.99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ============ DIGITAL ASSETS SECTION ============ -->
+    <section class="digital-assets" id="dashboard">
+        <h2 class="section-title">Parent Dashboard & Progress Tracker</h2>
+        <div class="assets-content">
+            <div class="dashboard-mockup">
+                <div class="dashboard-header">
+                    <h4>📊 Your Child's Progress</h4>
+                    <span style="font-size: 1.5rem;">👤</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-label">
+                        <span>Football Skills</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress-fill">
+                        <div class="progress-inner" style="width: 75%;"></div>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-label">
+                        <span>Teamwork & Cooperation</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="progress-fill">
+                        <div class="progress-inner" style="width: 85%;"></div>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-label">
+                        <span>Fitness Level</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress-fill">
+                        <div class="progress-inner" style="width: 90%;"></div>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 2rem; margin-bottom: 1rem;">🎖️ Achievements Unlocked</h4>
+                <ul class="asset-list">
+                    <li>First Goal Scorer</li>
+                    <li>Team Player Badge</li>
+                    <li>Perfect Attendance</li>
+                </ul>
+            </div>
+
+            <div class="assets-features">
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <div class="feature-text">
+                        <h4>Real-Time Family Updates</h4>
+                        <p>Stay connected with live updates on your child's progress and achievements</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-text">
+                        <h4>Mobile Access Anytime</h4>
+                        <p>Access the dashboard from any device, anywhere, anytime</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-text">
+                        <h4>Goal Setting & Tracking</h4>
+                        <p>Set personalized goals and watch your child achieve them</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">💌</div>
+                    <div class="feature-text">
+                        <h4>Coach Communication</h4>
+                        <p>Direct messaging with coaches for personalized feedback</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">��</div>
+                    <div class="feature-text">
+                        <h4>Photo & Video Gallery</h4>
+                        <p>Relive the best moments from training and competitions</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <div class="feature-text">
+                        <h4>Digital Certificates</h4>
+                        <p>Earn and download official achievement certificates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>🦎 About Proteus</h4>
+                <h4>⚽ About Proteus Kids</h4>
+                <p>We're dedicated to helping young athletes discover their potential through sports, discipline, and fun. Every child is a champion!</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#about">Our Mission</a></li>
-                    <li><a href="#team">Meet the Team</a></li>
-                    <li><a href="#values">Our Values</a></li>
-                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#programs">Our Programs</a></li>
+                    <li><a href="#achievements">Values & Achievements</a></li>
+                    <li><a href="#merchandise">Merchandise Store</a></li>
+                    <li><a href="#dashboard">Parent Dashboard</a></li>
                 </ul>
             </div>
+
             <div class="footer-section">
-                <h4>Programs</h4>
-                <ul>
-                    <li><a href="#programs">All Sports</a></li>
-                    <li><a href="#age">Age Groups</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#schedule">Schedule</a></li>
-                </ul>
+                <h4>Contact Us</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>123 Sports Lane, Active City, AC 12345</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>info@proteus-kids.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🕒</span>
+                        <span>Mon-Fri: 9AM - 6PM</span>
+                    </div>
+                </div>
             </div>
+
             <div class="footer-section">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#parents">Parent Resources</a></li>
-                    <li><a href="#news">News</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <ul>
-                    <li><a href="#facebook">Facebook</a></li>
-                    <li><a href="#instagram">Instagram</a></li>
-                    <li><a href="#twitter">Twitter</a></li>
-                    <li><a href="#youtube">YouTube</a></li>
-                </ul>
+                <h4>Follow Proto</h4>
+                <p>Join our community and stay updated with the latest Proto adventures!</p>
+                <div class="social-icons">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">🐦</div>
+                    <div class="social-icon">▶️</div>
+                </div>
             </div>
         </div>
+
         <div class="footer-bottom">
-            <p>&copy; 2026 Proteus Kids Sports. Play. Learn. Grow. Together. 🦎</p>
+            <p>&copy; 2026 Proteus Kids Sports. All rights reserved. | Designed with ❤️ for young champions</p>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add interactive hover effects to program cards
+        document.querySelectorAll('.program-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#f0fdf4';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '#ffffff';
+            });
+        });
+
+        // Animate badges on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'pulse 2s ease-in-out infinite';
+                }
+            });
+        });
+
+        document.querySelectorAll('.badge-placeholder').forEach(badge => {
+            observer.observe(badge);
+        });
+
+        // Simple form submission (can be connected to backend)
+        const ctaButton = document.querySelector('.cta-button');
+        ctaButton.addEventListener('click', function() {
+            alert('Welcome to Proteus Kids! 🎉 Explore our programs and find your perfect sport!');
+        });
+    </script>
 </body>
 </html>
