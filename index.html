@@ -20,7 +20,9 @@
             --light-bg: #ecf0f1;
             --white: #ffffff;
             --shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.15);
             --border-radius: 20px;
+            --border-radius-sm: 12px;
             --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
@@ -99,6 +101,10 @@
             .nav-links {
                 display: none;
             }
+
+            nav {
+                padding: 0 1rem;
+            }
         }
 
         /* ============ HERO SECTION ============ */
@@ -133,7 +139,7 @@
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
@@ -142,6 +148,8 @@
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
+            font-weight: 900;
+            letter-spacing: -1px;
             animation: slideInDown 0.8s ease-out;
         }
 
@@ -173,19 +181,25 @@
             }
         }
 
-        .hero-image {
-            width: 300px;
-            height: 300px;
-            margin: 2rem auto;
-            background: rgba(255, 255, 255, 0.2);
-            border: 3px dashed var(--white);
+        .hero-visual {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            margin: 3rem auto 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border: 3px dashed rgba(255, 255, 255, 0.6);
             border-radius: var(--border-radius);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
             animation: pulse 2s ease-in-out infinite;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(5px);
         }
 
         @keyframes pulse {
@@ -193,15 +207,20 @@
                 opacity: 1;
             }
             50% {
-                opacity: 0.7;
+                opacity: 0.8;
             }
+        }
+
+        .image-placeholder {
+            font-size: 4rem;
+            margin-bottom: 1rem;
         }
 
         .cta-button {
             display: inline-block;
             background-color: var(--white);
             color: var(--primary-color);
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 3rem;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
@@ -211,6 +230,8 @@
             box-shadow: var(--shadow);
             text-decoration: none;
             animation: slideInUp 0.8s ease-out 0.4s both;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .cta-button:hover {
@@ -225,15 +246,23 @@
         /* ============ PROGRAMS SECTION ============ */
         .programs {
             padding: 5rem 2rem;
-            background-color: var(--light-bg);
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-bg) 100%);
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             color: var(--dark-text);
             position: relative;
+            font-weight: 900;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 3rem;
         }
 
         .section-title::after {
@@ -242,7 +271,7 @@
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 120px;
             height: 6px;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
             border-radius: 3px;
@@ -250,7 +279,7 @@
 
         .programs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -259,33 +288,42 @@
         .program-card {
             background: var(--white);
             border-radius: var(--border-radius);
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
             cursor: pointer;
+            border: 3px solid transparent;
         }
 
         .program-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
         }
 
         .sport-icon {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1rem;
             display: inline-block;
+            transition: var(--transition);
+        }
+
+        .program-card:hover .sport-icon {
+            transform: scale(1.15) rotate(5deg);
         }
 
         .program-card h3 {
             font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             color: var(--primary-color);
+            font-weight: 700;
         }
 
         .program-card p {
             color: #7f8c8d;
             font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* ============ ACHIEVEMENTS SECTION ============ */
@@ -299,8 +337,12 @@
             color: var(--white);
         }
 
+        .achievements .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
         .achievements .section-title::after {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.6);
         }
 
         .values-grid {
@@ -308,14 +350,14 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 0 auto 4rem;
         }
 
         .value-card {
             background: rgba(255, 255, 255, 0.15);
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: var(--border-radius);
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
             backdrop-filter: blur(10px);
             transition: var(--transition);
@@ -324,45 +366,94 @@
         .value-card:hover {
             background: rgba(255, 255, 255, 0.25);
             border-color: var(--white);
-            transform: translateY(-4px);
+            transform: translateY(-8px);
         }
 
         .value-icon {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.15);
         }
 
         .value-card h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        /* ============ ACHIEVEMENTS SHOWCASE ============ */
+        .achievements-showcase {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 3rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .showcase-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .showcase-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
         }
 
         .badge-container {
-            margin-top: 2rem;
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
+            margin-top: 1.5rem;
         }
 
         .badge-placeholder {
             width: 120px;
             height: 120px;
             background: rgba(255, 255, 255, 0.2);
-            border: 2px dashed var(--white);
+            border: 2px dashed rgba(255, 255, 255, 0.5);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-align: center;
-            padding: 1rem;
+            padding: 0.8rem;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .badge-placeholder:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: var(--white);
+            transform: scale(1.1) rotate(5deg);
         }
 
         /* ============ MERCHANDISE CAROUSEL ============ */
         .merchandise {
             padding: 5rem 2rem;
-            background-color: var(--white);
+            background: linear-gradient(180deg, var(--light-bg) 0%, var(--white) 100%);
         }
 
         .carousel-container {
@@ -372,36 +463,58 @@
 
         .carousel {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .merch-card {
-            background: var(--light-bg);
+            background: var(--white);
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
             cursor: pointer;
+            border: 2px solid transparent;
         }
 
         .merch-card:hover {
-            transform: scale(1.05) translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05) translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--tertiary-color);
         }
 
         .merch-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--white);
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .merch-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .merch-image-content {
+            position: relative;
+            z-index: 2;
+            font-weight: 600;
         }
 
         .merch-info {
@@ -422,8 +535,8 @@
         }
 
         .merch-price {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 900;
             color: var(--accent-color);
         }
 
@@ -438,8 +551,12 @@
             color: var(--white);
         }
 
+        .digital-assets .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
         .digital-assets .section-title::after {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.6);
         }
 
         .assets-content {
@@ -448,7 +565,42 @@
             gap: 3rem;
             max-width: 1200px;
             margin: 0 auto;
+            align-items: start;
+        }
+
+        /* App Mockup */
+        .app-mockup {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .app-screens {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .app-screen {
+            aspect-ratio: 9/16;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .app-screen:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.6);
         }
 
         .dashboard-mockup {
@@ -470,6 +622,7 @@
 
         .dashboard-header h4 {
             font-size: 1.2rem;
+            font-weight: 700;
         }
 
         .progress-bar {
@@ -481,6 +634,7 @@
             justify-content: space-between;
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
+            font-weight: 600;
         }
 
         .progress-fill {
@@ -513,20 +667,19 @@
         }
 
         .asset-list li {
-            padding: 1rem;
+            padding: 0.8rem;
             background: rgba(255, 255, 255, 0.1);
-            margin-bottom: 1rem;
-            border-radius: 10px;
+            margin-bottom: 0.8rem;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             gap: 1rem;
+            font-weight: 500;
         }
 
         .asset-list li::before {
-            content: '✓';
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
+            content: '⭐';
+            font-size: 1.2rem;
         }
 
         .assets-features {
@@ -537,26 +690,34 @@
 
         .feature-item {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
+            align-items: flex-start;
         }
 
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             min-width: 60px;
+            text-align: center;
         }
 
         .feature-text h4 {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .feature-text p {
             font-size: 0.95rem;
             opacity: 0.9;
+            line-height: 1.5;
         }
 
         @media (max-width: 768px) {
             .assets-content {
+                grid-template-columns: 1fr;
+            }
+
+            .app-screens {
                 grid-template-columns: 1fr;
             }
         }
@@ -565,21 +726,28 @@
         footer {
             background: var(--dark-text);
             color: var(--white);
-            padding: 3rem 2rem 1rem;
+            padding: 4rem 2rem 1.5rem;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 3rem;
             max-width: 1200px;
             margin: 0 auto 2rem;
         }
 
         .footer-section h4 {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-size: 1.1rem;
             color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            color: #bdc3c7;
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
 
         .footer-section ul {
@@ -594,23 +762,32 @@
             color: #bdc3c7;
             text-decoration: none;
             transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .footer-section a:hover {
             color: var(--primary-color);
-            padding-left: 0.5rem;
+            transform: translateX(4px);
         }
 
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         .contact-item {
             display: flex;
-            gap: 0.8rem;
+            gap: 1rem;
             align-items: flex-start;
+            color: #bdc3c7;
+        }
+
+        .contact-item span:first-child {
+            font-size: 1.3rem;
+            min-width: 30px;
         }
 
         .social-icons {
@@ -620,8 +797,8 @@
         }
 
         .social-icon {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: var(--primary-color);
             border-radius: 50%;
             display: flex;
@@ -629,12 +806,13 @@
             justify-content: center;
             cursor: pointer;
             transition: var(--transition);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: bold;
         }
 
         .social-icon:hover {
             background: var(--secondary-color);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
         }
 
         .footer-bottom {
@@ -648,21 +826,30 @@
         /* ============ RESPONSIVE DESIGN ============ */
         @media (max-width: 1024px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
             .hero p {
                 font-size: 1.1rem;
             }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
         }
 
         @media (max-width: 768px) {
             .hero {
-                padding: 4rem 1.5rem;
+                padding: 3rem 1.5rem;
             }
 
             .hero h1 {
                 font-size: 2rem;
+            }
+
+            .hero-visual {
+                max-width: 100%;
+                height: 300px;
             }
 
             .programs,
@@ -673,11 +860,21 @@
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
-            .carousel {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            .programs-grid,
+            .carousel,
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
             }
         }
 
@@ -701,64 +898,68 @@
     <!-- ============ HEADER & NAVIGATION ============ -->
     <header>
         <nav>
-            <a href="#" class="logo">
-                <span class="logo-emoji">⚽</span>
+            <a href="#home" class="logo">
+                <span class="logo-emoji">🎖️</span>
                 <span>Proteus Kids</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#programs">Programs</a></li>
-                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#achievements">Values</a></li>
                 <li><a href="#merchandise">Merchandise</a></li>
-                <li><a href="#dashboard">Parent Dashboard</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- ============ HERO SECTION ============ -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
             <h1>Play. Learn. Grow. Together.</h1>
             <p>Join Proteus Kids Sports and discover the champion within you!</p>
-            <div class="hero-image">
-                🎨 Proto Mascot Hero Visual Placeholder
+            
+            <div class="hero-visual">
+                <div class="image-placeholder">🦁</div>
+                <div><strong>Proto in Action</strong><br>Hero Visual Placeholder</div>
             </div>
-            <button class="cta-button">View Our Programs</button>
+            
+            <a href="#programs" class="cta-button">View Our Programs</a>
         </div>
     </section>
 
     <!-- ============ PROGRAMS SECTION ============ -->
     <section class="programs" id="programs">
         <h2 class="section-title">Our Sports Programs</h2>
+        <p class="section-subtitle">Discover a variety of sports with Proto as your guide!</p>
         <div class="programs-grid">
             <div class="program-card">
                 <div class="sport-icon">⚽</div>
                 <h3>Football</h3>
-                <p>Master the beautiful game with our experienced coaches</p>
+                <p>Master the beautiful game with our experienced coaches and discover your inner champion</p>
             </div>
             <div class="program-card">
                 <div class="sport-icon">🏀</div>
                 <h3>Basketball</h3>
-                <p>Shoot, dribble, and soar to new heights</p>
+                <p>Shoot, dribble, and soar to new heights with dynamic training and teamwork</p>
             </div>
             <div class="program-card">
                 <div class="sport-icon">🎾</div>
                 <h3>Tennis</h3>
-                <p>Serve, volley, and ace your way to success</p>
+                <p>Serve, volley, and ace your way to success with precision and technique</p>
             </div>
             <div class="program-card">
                 <div class="sport-icon">🏊</div>
                 <h3>Swimming</h3>
-                <p>Dive into a world of aquatic excellence</p>
+                <p>Dive into a world of aquatic excellence and build strength and endurance</p>
             </div>
             <div class="program-card">
                 <div class="sport-icon">🏃</div>
                 <h3>Athletics</h3>
-                <p>Run, jump, and throw your personal best</p>
+                <p>Run, jump, and throw your personal best in track and field excellence</p>
             </div>
             <div class="program-card">
                 <div class="sport-icon">🏏</div>
                 <h3>Cricket</h3>
-                <p>Bat, bowl, and field like a champion</p>
+                <p>Bat, bowl, and field like a champion in this timeless sport</p>
             </div>
         </div>
     </section>
@@ -766,36 +967,63 @@
     <!-- ============ ACHIEVEMENTS SECTION ============ -->
     <section class="achievements" id="achievements">
         <h2 class="section-title">Our Core Values</h2>
+        <p class="section-subtitle">What we believe in, what we teach, what your child will grow into</p>
+        
         <div class="values-grid">
             <div class="value-card">
                 <div class="value-icon">🏆</div>
                 <h3>Excellence</h3>
-                <p>Strive for the highest standards in every endeavor</p>
+                <p>Strive for the highest standards in every endeavor, both on and off the field</p>
             </div>
             <div class="value-card">
                 <div class="value-icon">🤝</div>
                 <h3>Teamwork</h3>
-                <p>Together we achieve more than we do alone</p>
+                <p>Together we achieve more than we do alone. Build lasting friendships</p>
             </div>
             <div class="value-card">
                 <div class="value-icon">💪</div>
                 <h3>Effort</h3>
-                <p>Give your best every single day</p>
+                <p>Give your best every single day. Hard work creates champions</p>
             </div>
             <div class="value-card">
                 <div class="value-icon">📈</div>
                 <h3>Growth</h3>
-                <p>Every challenge is an opportunity to improve</p>
+                <p>Every challenge is an opportunity to improve. Progress over perfection</p>
             </div>
         </div>
 
-        <div class="text-center mt-4">
-            <h3 style="margin-bottom: 2rem;">Earn Your Badges & Certificates</h3>
-            <div class="badge-container">
-                <div class="badge-placeholder">🥇 Gold<br>Badge</div>
-                <div class="badge-placeholder">🥈 Silver<br>Badge</div>
-                <div class="badge-placeholder">🥉 Bronze<br>Badge</div>
-                <div class="badge-placeholder">⭐ Star<br>Certificate</div>
+        <!-- Achievements Showcase -->
+        <div class="achievements-showcase">
+            <div class="showcase-grid">
+                <!-- Certificates -->
+                <div class="showcase-item">
+                    <h4>🎓 Certificates</h4>
+                    <p>Earn official achievement certificates for completing programs and reaching milestones</p>
+                    <div class="badge-container">
+                        <div class="badge-placeholder">Completion<br>Certificate</div>
+                        <div class="badge-placeholder">Excellence<br>Award</div>
+                    </div>
+                </div>
+
+                <!-- Digital Badges & Stickers -->
+                <div class="showcase-item">
+                    <h4>⭐ Digital Badges & Stickers</h4>
+                    <p>Collect exclusive badges and stickers as you progress through programs and achieve goals</p>
+                    <div class="badge-container">
+                        <div class="badge-placeholder">Gold<br>Badge</div>
+                        <div class="badge-placeholder">Team Star<br>Sticker</div>
+                    </div>
+                </div>
+
+                <!-- Digital Assets -->
+                <div class="showcase-item">
+                    <h4>🎨 Digital Assets Pack</h4>
+                    <p>Download wallpapers, profiles pictures, and digital assets to celebrate achievements</p>
+                    <div class="badge-container">
+                        <div class="badge-placeholder">Custom<br>Wallpaper</div>
+                        <div class="badge-placeholder">Avatar<br>Frame</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -804,69 +1032,88 @@
     <section class="merchandise" id="merchandise">
         <div class="carousel-container">
             <h2 class="section-title">Proto-Themed Merchandise</h2>
+            <p class="section-subtitle">Wear your Proteus pride with exclusive Proto merchandise</p>
             <div class="carousel">
                 <div class="merch-card">
                     <div class="merch-image">
-                        👕 Proto T-Shirt<br>Product Image Placeholder
+                        <div class="merch-image-content">
+                            👕 Proto T-Shirt<br>
+                            <small>Product Image Placeholder</small>
+                        </div>
                     </div>
                     <div class="merch-info">
                         <div class="merch-name">Proto T-Shirt</div>
-                        <div class="merch-description">Comfortable and colorful</div>
+                        <div class="merch-description">Comfortable and colorful with Proto's smiling face</div>
                         <div class="merch-price">$14.99</div>
                     </div>
                 </div>
 
                 <div class="merch-card">
                     <div class="merch-image">
-                        🧢 Proto Cap<br>Product Image Placeholder
+                        <div class="merch-image-content">
+                            🧢 Proto Cap<br>
+                            <small>Product Image Placeholder</small>
+                        </div>
                     </div>
                     <div class="merch-info">
                         <div class="merch-name">Proto Cap</div>
-                        <div class="merch-description">Keep the sun out, style in</div>
+                        <div class="merch-description">Keep the sun out, style in with Proto embroidery</div>
                         <div class="merch-price">$12.99</div>
                     </div>
                 </div>
 
                 <div class="merch-card">
                     <div class="merch-image">
-                        💧 Water Bottle<br>Product Image Placeholder
+                        <div class="merch-image-content">
+                            💧 Water Bottle<br>
+                            <small>Product Image Placeholder</small>
+                        </div>
                     </div>
                     <div class="merch-info">
                         <div class="merch-name">Proto Water Bottle</div>
-                        <div class="merch-description">Stay hydrated in style</div>
+                        <div class="merch-description">Stay hydrated in style, sports-ready design</div>
                         <div class="merch-price">$16.99</div>
                     </div>
                 </div>
 
                 <div class="merch-card">
                     <div class="merch-image">
-                        🎒 Backpack<br>Product Image Placeholder
+                        <div class="merch-image-content">
+                            🎒 Backpack<br>
+                            <small>Product Image Placeholder</small>
+                        </div>
                     </div>
                     <div class="merch-info">
                         <div class="merch-name">Proto Backpack</div>
-                        <div class="merch-description">Carry everything in comfort</div>
+                        <div class="merch-description">Carry everything in comfort with multiple compartments</div>
                         <div class="merch-price">$34.99</div>
                     </div>
                 </div>
 
                 <div class="merch-card">
                     <div class="merch-image">
-                        🧦 Socks Bundle<br>Product Image Placeholder
+                        <div class="merch-image-content">
+                            🧦 Socks Bundle<br>
+                            <small>Product Image Placeholder</small>
+                        </div>
                     </div>
                     <div class="merch-info">
                         <div class="merch-name">Proto Socks (5-Pack)</div>
-                        <div class="merch-description">Colorful and cozy</div>
+                        <div class="merch-description">Colorful and cozy, perfect for any sport</div>
                         <div class="merch-price">$9.99</div>
                     </div>
                 </div>
 
                 <div class="merch-card">
                     <div class="merch-image">
-                        🏅 Sticker Pack<br>Product Image Placeholder
+                        <div class="merch-image-content">
+                            🏅 Sticker Pack<br>
+                            <small>Product Image Placeholder</small>
+                        </div>
                     </div>
                     <div class="merch-info">
                         <div class="merch-name">Proto Sticker Pack</div>
-                        <div class="merch-description">Decorate your world</div>
+                        <div class="merch-description">Decorate your world with fun Proto designs</div>
                         <div class="merch-price">$4.99</div>
                     </div>
                 </div>
@@ -876,58 +1123,36 @@
 
     <!-- ============ DIGITAL ASSETS SECTION ============ -->
     <section class="digital-assets" id="dashboard">
-        <h2 class="section-title">Parent Dashboard & Progress Tracker</h2>
+        <h2 class="section-title">Digital Assets & Parent Dashboard</h2>
+        <p class="section-subtitle">Track progress, celebrate achievements, stay connected with coaches</p>
+        
         <div class="assets-content">
-            <div class="dashboard-mockup">
-                <div class="dashboard-header">
-                    <h4>📊 Your Child's Progress</h4>
-                    <span style="font-size: 1.5rem;">👤</span>
-                </div>
-
-                <div class="progress-bar">
-                    <div class="progress-label">
-                        <span>Football Skills</span>
-                        <span>75%</span>
+            <!-- App Showcase -->
+            <div class="app-mockup">
+                <h4 style="margin-bottom: 1.5rem;">📱 Proteus Kids App</h4>
+                <div class="app-screens">
+                    <div class="app-screen">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎮</div>
+                        App Icon<br><small>with Proto Design</small>
                     </div>
-                    <div class="progress-fill">
-                        <div class="progress-inner" style="width: 75%;"></div>
+                    <div class="app-screen">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📱</div>
+                        Splash Screen<br><small>Gamified Design</small>
                     </div>
-                </div>
-
-                <div class="progress-bar">
-                    <div class="progress-label">
-                        <span>Teamwork & Cooperation</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="progress-fill">
-                        <div class="progress-inner" style="width: 85%;"></div>
+                    <div class="app-screen">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
+                        Dashboard<br><small>Progress Tracker</small>
                     </div>
                 </div>
-
-                <div class="progress-bar">
-                    <div class="progress-label">
-                        <span>Fitness Level</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="progress-fill">
-                        <div class="progress-inner" style="width: 90%;"></div>
-                    </div>
-                </div>
-
-                <h4 style="margin-top: 2rem; margin-bottom: 1rem;">🎖️ Achievements Unlocked</h4>
-                <ul class="asset-list">
-                    <li>First Goal Scorer</li>
-                    <li>Team Player Badge</li>
-                    <li>Perfect Attendance</li>
-                </ul>
             </div>
 
+            <!-- Dashboard Features -->
             <div class="assets-features">
                 <div class="feature-item">
                     <div class="feature-icon">👨‍👩‍👧‍👦</div>
                     <div class="feature-text">
                         <h4>Real-Time Family Updates</h4>
-                        <p>Stay connected with live updates on your child's progress and achievements</p>
+                        <p>Stay connected with live updates on your child's progress, achievements, and upcoming events</p>
                     </div>
                 </div>
 
@@ -935,7 +1160,7 @@
                     <div class="feature-icon">📱</div>
                     <div class="feature-text">
                         <h4>Mobile Access Anytime</h4>
-                        <p>Access the dashboard from any device, anywhere, anytime</p>
+                        <p>Access the dashboard from any device, anywhere, anytime. Available on iOS and Android</p>
                     </div>
                 </div>
 
@@ -943,23 +1168,23 @@
                     <div class="feature-icon">🎯</div>
                     <div class="feature-text">
                         <h4>Goal Setting & Tracking</h4>
-                        <p>Set personalized goals and watch your child achieve them</p>
+                        <p>Set personalized goals and watch your child achieve them with our gamified tracker</p>
                     </div>
                 </div>
 
                 <div class="feature-item">
-                    <div class="feature-icon">💌</div>
+                    <div class="feature-icon">💬</div>
                     <div class="feature-text">
                         <h4>Coach Communication</h4>
-                        <p>Direct messaging with coaches for personalized feedback</p>
+                        <p>Direct messaging with coaches for personalized feedback and updates</p>
                     </div>
                 </div>
 
                 <div class="feature-item">
-                    <div class="feature-icon">��</div>
+                    <div class="feature-icon">🖼️</div>
                     <div class="feature-text">
                         <h4>Photo & Video Gallery</h4>
-                        <p>Relive the best moments from training and competitions</p>
+                        <p>Relive the best moments from training sessions and competitions</p>
                     </div>
                 </div>
 
@@ -967,10 +1192,56 @@
                     <div class="feature-icon">🏆</div>
                     <div class="feature-text">
                         <h4>Digital Certificates</h4>
-                        <p>Earn and download official achievement certificates</p>
+                        <p>Earn and download official achievement certificates instantly</p>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Dashboard Preview -->
+        <div class="dashboard-mockup" style="margin-top: 4rem;">
+            <div class="dashboard-header">
+                <h4>📊 Sample Child Progress</h4>
+                <span style="font-size: 2rem;">🦁</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-label">
+                    <span>Football Skills</span>
+                    <span>75%</span>
+                </div>
+                <div class="progress-fill">
+                    <div class="progress-inner" style="width: 75%;"></div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-label">
+                    <span>Teamwork & Cooperation</span>
+                    <span>85%</span>
+                </div>
+                <div class="progress-fill">
+                    <div class="progress-inner" style="width: 85%;"></div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-label">
+                    <span>Fitness Level</span>
+                    <span>90%</span>
+                </div>
+                <div class="progress-fill">
+                    <div class="progress-inner" style="width: 90%;"></div>
+                </div>
+            </div>
+
+            <h4 style="margin-top: 2rem; margin-bottom: 1rem;">🎖️ Achievements Unlocked</h4>
+            <ul class="asset-list">
+                <li>First Goal Scorer</li>
+                <li>Team Player Badge</li>
+                <li>Perfect Attendance Award</li>
+                <li>Excellence in Training</li>
+            </ul>
         </div>
     </section>
 
@@ -978,17 +1249,17 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>⚽ About Proteus Kids</h4>
-                <p>We're dedicated to helping young athletes discover their potential through sports, discipline, and fun. Every child is a champion!</p>
+                <h4>�� About Proteus Kids</h4>
+                <p>We're dedicated to helping young athletes discover their potential through sports, discipline, and fun. Every child is a champion! Proteus Kids Sports combines world-class coaching with the joy of play.</p>
             </div>
 
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#programs">Our Programs</a></li>
-                    <li><a href="#achievements">Values & Achievements</a></li>
-                    <li><a href="#merchandise">Merchandise Store</a></li>
-                    <li><a href="#dashboard">Parent Dashboard</a></li>
+                    <li><a href="#programs">🎯 Our Programs</a></li>
+                    <li><a href="#achievements">🌟 Values & Achievements</a></li>
+                    <li><a href="#merchandise">🛍️ Merchandise Store</a></li>
+                    <li><a href="#dashboard">📊 Parent Dashboard</a></li>
                 </ul>
             </div>
 
@@ -1004,73 +1275,31 @@
                         <span>+1 (555) 123-4567</span>
                     </div>
                     <div class="contact-item">
-                        <span>📧</span>
-                        <span>info@proteus-kids.com</span>
+                        <span>✉️</span>
+                        <span>hello@proteus-kids.com</span>
                     </div>
-                    <div class="contact-item">
-                        <span>🕒</span>
-                        <span>Mon-Fri: 9AM - 6PM</span>
-                    </div>
+                </div>
+                <div class="social-icons">
+                    <div class="social-icon" title="Facebook">f</div>
+                    <div class="social-icon" title="Instagram">📷</div>
+                    <div class="social-icon" title="Twitter">𝕏</div>
+                    <div class="social-icon" title="YouTube">▶️</div>
                 </div>
             </div>
 
             <div class="footer-section">
-                <h4>Follow Proto</h4>
-                <p>Join our community and stay updated with the latest Proto adventures!</p>
-                <div class="social-icons">
-                    <div class="social-icon">📘</div>
-                    <div class="social-icon">📷</div>
-                    <div class="social-icon">🐦</div>
-                    <div class="social-icon">▶️</div>
-                </div>
+                <h4>Newsletter</h4>
+                <p>Subscribe to get updates on new programs, events, and exclusive merchandise offers</p>
+                <form style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                    <input type="email" placeholder="Your email" style="flex: 1; padding: 0.7rem; border: none; border-radius: 8px; font-size: 0.9rem;">
+                    <button type="submit" style="padding: 0.7rem 1.5rem; background: var(--primary-color); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: var(--transition);" onmouseover="this.style.backgroundColor='var(--secondary-color)'" onmouseout="this.style.backgroundColor='var(--primary-color)'">Subscribe</button>
+                </form>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Proteus Kids Sports. All rights reserved. | Designed with ❤️ for young champions</p>
+            <p>&copy; 2026 Proteus Kids Sports. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a></p>
         </div>
     </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Add interactive hover effects to program cards
-        document.querySelectorAll('.program-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.backgroundColor = '#f0fdf4';
-            });
-            card.addEventListener('mouseleave', function() {
-                this.style.backgroundColor = '#ffffff';
-            });
-        });
-
-        // Animate badges on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'pulse 2s ease-in-out infinite';
-                }
-            });
-        });
-
-        document.querySelectorAll('.badge-placeholder').forEach(badge => {
-            observer.observe(badge);
-        });
-
-        // Simple form submission (can be connected to backend)
-        const ctaButton = document.querySelector('.cta-button');
-        ctaButton.addEventListener('click', function() {
-            alert('Welcome to Proteus Kids! 🎉 Explore our programs and find your perfect sport!');
-        });
-    </script>
 </body>
 </html>
