@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proteus Kids Sports - Play. Learn. Grow. Together.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0052CC;
+            --primary-green: #2DD4BF;
+            --primary-orange: #FF9500;
+            --primary-purple: #9333EA;
+            --dark-navy: #0F172A;
+            --light-bg: #F0F9FF;
+            --accent-teal: #06B6D4;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-navy);
+            background: white;
+            overflow-x: hidden;
+        }
+
+        /* ==================== HEADER ==================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .logo-emoji {
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            animation: slideInRight 0.8s ease;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-green), var(--primary-orange));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 50%, var(--accent-teal) 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '⚽ 🏀 🎾 🏐 🏊 🏃';
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite;
+            top: 10%;
+            left: 5%;
+        }
+
+        .hero::after {
+            content: '🏆 ⭐ 🎯 🎪 🎨 🎭';
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite reverse;
+            bottom: 10%;
+            right: 5%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-character {
+            font-size: 15rem;
+            margin: 0 0 2rem;
+            animation: bounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            animation: slideInDown 1s ease;
+        }
+
+        .hero h1 span {
+            display: inline-block;
+            background: linear-gradient(120deg, var(--primary-green), var(--primary-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-orange), #FF6B00);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 149, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.4);
+        }
+
+        /* ==================== FEATURES SECTION ==================== */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 4rem;
+            color: var(--dark-navy);
+            animation: slideInDown 0.8s ease;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-top: 5px solid var(--primary-green);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ==================== PROGRAMS SECTION ==================== */
+        .programs {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-green), var(--primary-orange));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: 10;
+        }
+
+        .program-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-emoji {
+            font-size: 5rem;
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--light-bg), white);
+        }
+
+        .program-content {
+            padding: 1.5rem;
+        }
+
+        .program-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-navy);
+        }
+
+        .program-content p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* ==================== ACHIEVEMENTS SECTION ==================== */
+        .achievements {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            text-align: center;
+        }
+
+        .achievements .section-title {
+            color: white;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .badge:hover {
+            transform: scale(1.1) rotateZ(5deg);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .badge-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+            animation: rotate 4s linear infinite;
+        }
+
+        .badge:hover .badge-emoji {
+            transform: scale(1.2) rotateZ(-10deg);
+        }
+
+        .badge-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary-orange), var(--primary-green));
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            margin: 4rem 2rem;
+        }
+
+        .cta-section::before {
+            content: '🎉 🎊 🏆 ⭐ 🎯 🎪';
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.15;
+            animation: float 10s ease-in-out infinite;
+            top: -20%;
+            left: -10%;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            animation: slideInDown 0.8s ease;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark-navy);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-green);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-character {
+                font-size: 8rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-emoji">🦎</span>
+                <span>PROTEUS</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-character">🦎</div>
+            <h1>Play. <span>Learn. Grow.</span> Together.</h1>
+            <p>Where kids discover the joy of sports and build confidence one game at a time.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Get Started Now</button>
+                <button class="btn btn-secondary">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <h2 class="section-title">Why Choose Proteus?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Safe & Inclusive</h3>
+                <p>A welcoming community where every child feels valued, respected, and celebrated for who they are.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>Skill Development</h3>
+                <p>Progressive training programs that build real athletic abilities while boosting confidence and resilience.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💪</div>
+                <h3>Active & Healthy</h3>
+                <p>Building stronger bodies and happier minds through sports, movement, and healthy lifestyle habits.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS SECTION -->
+    <section class="programs" id="programs">
+        <h2 class="section-title">Our Sports Programs</h2>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-emoji">⚽</div>
+                <div class="program-content">
+                    <h3>Football</h3>
+                    <p>Master teamwork, strategy, and precision on the pitch.</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-emoji">🏀</div>
+                <div class="program-content">
+                    <h3>Basketball</h3>
+                    <p>Develop agility, coordination, and competitive spirit.</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-emoji">🎾</div>
+                <div class="program-content">
+                    <h3>Tennis</h3>
+                    <p>Build focus, technique, and individual achievement.</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-emoji">🏊</div>
+                <div class="program-content">
+                    <h3>Swimming</h3>
+                    <p>Discover confidence and endurance in the water.</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-emoji">🏃</div>
+                <div class="program-content">
+                    <h3>Athletics</h3>
+                    <p>Push limits, break records, and reach new heights.</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-emoji">🏏</div>
+                <div class="program-content">
+                    <h3>Cricket</h3>
+                    <p>Experience tactical thinking and team harmony.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="achievements" id="achievements">
+        <h2 class="section-title">Collect Your Achievements</h2>
+        <div class="achievements-grid">
+            <div class="badge">
+                <div class="badge-emoji">🏆</div>
+                <div class="badge-title">Excellence</div>
+            </div>
+            <div class="badge">
+                <div class="badge-emoji">⭐</div>
+                <div class="badge-title">Focus</div>
+            </div>
+            <div class="badge">
+                <div class="badge-emoji">🤝</div>
+                <div class="badge-title">Teamwork</div>
+            </div>
+            <div class="badge">
+                <div class="badge-emoji">💪</div>
+                <div class="badge-title">Effort</div>
+            </div>
+            <div class="badge">
+                <div class="badge-emoji">🎯</div>
+                <div class="badge-title">Focus</div>
+            </div>
+            <div class="badge">
+                <div class="badge-emoji">🚀</div>
+                <div class="badge-title">Growth</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <h2>Ready to Join the Adventure?</h2>
+        <p>Start your Proteus journey today and discover what you can achieve!</p>
+        <button class="btn btn-primary">Enroll Now</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>🦎 About Proteus</h4>
+                <ul>
+                    <li><a href="#about">Our Mission</a></li>
+                    <li><a href="#team">Meet the Team</a></li>
+                    <li><a href="#values">Our Values</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="#programs">All Sports</a></li>
+                    <li><a href="#age">Age Groups</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#parents">Parent Resources</a></li>
+                    <li><a href="#news">News</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#facebook">Facebook</a></li>
+                    <li><a href="#instagram">Instagram</a></li>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#youtube">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Proteus Kids Sports. Play. Learn. Grow. Together. 🦎</p>
+        </div>
+    </footer>
+</body>
+</html>
