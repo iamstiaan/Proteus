@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Proteus Kids Sports — Logo & Mascot Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy:        #0D1F4E;
+    --navy-mid:    #162a62;
+    --teal:        #00C2A8;
+    --teal-light:  #E0FAF7;
+    --green:       #3DD66B;
+    --green-dark:  #28a84f;
+    --blue:        #1565C0;
+    --orange:      #FF8C00;
+    --purple:      #7B3FBE;
+    --yellow:      #FFD600;
+    --red:         #E53935;
+    --white:       #FFFFFF;
+    --offwhite:    #F4F8FF;
+    --card-bg:     #FFFFFF;
+    --text:        #1A2B4A;
+    --text-muted:  #4a5878;
+    --border:      rgba(13,31,78,.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--offwhite);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--navy);
+    padding: 72px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 90% at 15% 50%, rgba(0,194,168,.15) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 75% at 85% 20%, rgba(61,214,107,.12) 0%, transparent 65%),
+      radial-gradient(ellipse 45% 60% at 50% 110%, rgba(123,63,190,.14) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  /* diagonal stripe texture */
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,.018) 0px,
+      rgba(255,255,255,.018) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 10px; font-weight: 900;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 16px;
+    position: relative;
+  }
+  .hero-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(36px, 6vw, 68px);
+    color: var(--white); line-height: 1.05;
+    position: relative;
+  }
+  .hero-title .accent { color: var(--green); }
+  .hero-sub {
+    margin-top: 10px;
+    font-size: 15px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--yellow); position: relative;
+  }
+  .hero-badge-row {
+    display: flex; flex-wrap: wrap;
+    justify-content: center; gap: 10px;
+    margin-top: 28px; position: relative;
+  }
+  .hero-badge {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 40px;
+    padding: 6px 16px;
+    font-size: 12px; font-weight: 800;
+    color: rgba(255,255,255,.85);
+    letter-spacing: .5px;
+  }
+  .hero-badge.active { background: var(--teal); border-color: var(--teal); color: var(--navy); }
+
+  /* ─── NAV TABS ─── */
+  .tab-nav {
+    background: var(--navy-mid);
+    display: flex; overflow-x: auto;
+    gap: 0; padding: 0 24px;
+    border-bottom: 3px solid rgba(0,194,168,.3);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px; font-weight: 900;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    padding: 16px 20px;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+    white-space: nowrap;
+    transition: color .2s, border-color .2s;
+  }
+  .tab-btn:hover { color: rgba(255,255,255,.85); }
+  .tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+  /* ─── LAYOUT ─── */
+  .page { max-width: 1020px; margin: 0 auto; padding: 60px 28px 100px; }
+
+  .section { margin-bottom: 80px; }
+  .section-label {
+    font-size: 10px; font-weight: 900;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 6px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+    opacity: .4;
+  }
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 32px; color: var(--navy);
+    margin-bottom: 12px; line-height: 1.1;
+  }
+  .section-body {
+    font-size: 15.5px; line-height: 1.78;
+    color: var(--text-muted); max-width: 680px;
+    margin-bottom: 32px;
+  }
+  .section-body strong { color: var(--text); font-weight: 800; }
+
+  /* ─── MASCOT SHOWCASE ─── */
+  .mascot-hero-card {
+    background: var(--navy);
+    border-radius: 28px;
+    padding: 48px 44px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    position: relative; overflow: hidden;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 680px) { .mascot-hero-card { grid-template-columns: 1fr; } }
+  .mascot-hero-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 100% at -10% 50%, rgba(0,194,168,.2) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .mascot-left { position: relative; }
+  .mascot-name-tag {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--navy);
+    font-size: 10px; font-weight: 900;
+    letter-spacing: 3px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 30px;
+    margin-bottom: 14px;
+  }
+  .mascot-big-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(32px, 4vw, 50px);
+    color: var(--white); line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  .mascot-big-name span { color: var(--green); }
+  .mascot-subtitle {
+    font-size: 13px; font-weight: 700;
+    color: rgba(255,255,255,.6);
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .mascot-traits {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .trait-row {
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .trait-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    flex-shrink: 0; margin-top: 6px;
+  }
+  .trait-text { font-size: 14px; color: rgba(255,255,255,.8); }
+  .trait-text strong { color: var(--white); font-weight: 800; }
+
+  /* Proto visual box */
+  .mascot-visual {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+    position: relative;
+  }
+  .proto-svg-wrap {
+    width: 160px; height: 160px;
+    margin: 0 auto 16px;
+    position: relative;
+  }
+  /* SVG chameleon silhouette using CSS shapes */
+  .proto-body {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #3DD66B 0%, #00C2A8 50%, #1565C0 100%);
+    border-radius: 50% 40% 50% 40%;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 40px rgba(61,214,107,.4), 0 0 80px rgba(0,194,168,.2);
+    animation: protoPulse 3s ease-in-out infinite;
+  }
+  @keyframes protoPulse {
+    0%, 100% { box-shadow: 0 0 40px rgba(61,214,107,.4), 0 0 80px rgba(0,194,168,.2); transform: scale(1); }
+    50%       { box-shadow: 0 0 60px rgba(61,214,107,.6), 0 0 110px rgba(0,194,168,.3); transform: scale(1.04); }
+  }
+  .proto-p {
+    font-family: 'Fredoka One', cursive;
+    font-size: 64px; color: var(--white);
+    text-shadow: 0 2px 12px rgba(0,0,0,.3);
+    line-height: 1;
+  }
+  .mascot-motto {
+    font-family: 'Fredoka One', cursive;
+    font-size: 15px; color: var(--teal);
+    margin-top: 8px;
+  }
+  .mascot-motto span { color: var(--green); }
+
+  /* ─── SPORT VARIANTS ─── */
+  .variants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .variant-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 20px 16px;
+    text-align: center;
+    border: 2px solid transparent;
+    box-shadow: 0 3px 16px var(--border);
+    cursor: default;
+    transition: transform .2s, border-color .2s, box-shadow .2s;
+    position: relative; overflow: hidden;
+  }
+  .variant-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+    border-radius: 16px 16px 0 0;
+  }
+  .variant-card:nth-child(1)::before { background: var(--green); }
+  .variant-card:nth-child(2)::before { background: var(--orange); }
+  .variant-card:nth-child(3)::before { background: var(--teal); }
+  .variant-card:nth-child(4)::before { background: var(--blue); }
+  .variant-card:nth-child(5)::before { background: var(--red); }
+  .variant-card:nth-child(6)::before { background: var(--purple); }
+  .variant-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(13,31,78,.14);
+    border-color: var(--teal);
+  }
+  .variant-emoji { font-size: 32px; margin-bottom: 8px; display: block; }
+  .variant-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px; color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .variant-accent-label {
+    font-size: 10px; font-weight: 900;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 20px;
+    display: inline-block;
+  }
+  .v1 { background: #E8F5E9; color: var(--green-dark); }
+  .v2 { background: #FFF3E0; color: var(--orange); }
+  .v3 { background: var(--teal-light); color: #00796B; }
+  .v4 { background: #E3F2FD; color: var(--blue); }
+  .v5 { background: #FFEBEE; color: var(--red); }
+  .v6 { background: #EDE7F6; color: var(--purple); }
+
+  /* ─── COLOR PALETTE ─── */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px; margin-bottom: 32px;
+  }
+  .swatch-card {
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 20px var(--border);
+  }
+  .swatch-color {
+    height: 80px;
+    position: relative;
+  }
+  .swatch-color.gradient-proto {
+    background: linear-gradient(135deg, #3DD66B 0%, #00C2A8 55%, #1565C0 100%);
+  }
+  .swatch-info {
+    background: var(--white);
+    padding: 12px 14px;
+  }
+  .swatch-name {
+    font-weight: 900; font-size: 13px;
+    color: var(--navy); margin-bottom: 2px;
+  }
+  .swatch-hex {
+    font-size: 11px; color: var(--text-muted);
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+  }
+  .swatch-role {
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--teal); margin-top: 3px;
+  }
+  /* gradient swatch label over color bar */
+  .swatch-color.gradient-proto::after {
+    content: 'PROTO GRADIENT';
+    position: absolute; bottom: 6px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 8px; font-weight: 900;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,.85);
+    white-space: nowrap;
+  }
+
+  /* ─── LOGO LOCKUPS ─── */
+  .lockup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px; margin-bottom: 40px;
+  }
+  .lockup-card {
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 4px 24px var(--border);
+  }
+  .lockup-preview {
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .lockup-preview.light-bg { background: var(--white); }
+  .lockup-preview.dark-bg  { background: var(--navy); }
+  .lockup-preview.teal-bg  { background: var(--teal); }
+  .lockup-preview.offwhite-bg { background: var(--offwhite); border-bottom: 1px solid var(--border); }
+
+  /* Rendered logo in CSS */
+  .css-logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .logo-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--green) 0%, var(--teal) 100%);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 3px 12px rgba(0,194,168,.4);
+  }
+  .logo-icon .p-letter {
+    font-family: 'Fredoka One', cursive;
+    font-size: 26px; color: var(--white);
+    line-height: 1;
+  }
+  .logo-text-stack { text-align: left; }
+  .logo-proteus {
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px; line-height: 1; color: var(--navy);
+  }
+  .logo-proteus.light { color: var(--white); }
+  .logo-kids {
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px; color: var(--teal);
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+  .logo-sports {
+    font-family: 'Fredoka One', cursive;
+    font-size: 10px; color: var(--orange);
+    letter-spacing: 3px; text-transform: uppercase;
+  }
+  /* icon-only variant */
+  .logo-icon-only {
+    width: 54px; height: 54px;
+    background: linear-gradient(135deg, var(--green) 0%, var(--teal) 55%, var(--blue) 100%);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,194,168,.5);
+  }
+  .logo-icon-only .p-letter { font-family: 'Fredoka One', cursive; font-size: 30px; color: var(--white); }
+  /* white lockup */
+  .logo-icon.white-variant {
+    background: rgba(255,255,255,.2);
+    border: 2px solid rgba(255,255,255,.5);
+    box-shadow: none;
+  }
+
+  .lockup-info { background: var(--white); padding: 16px 18px; }
+  .lockup-title { font-weight: 900; font-size: 14px; color: var(--navy); margin-bottom: 3px; }
+  .lockup-desc  { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ─── RULES GRID ─── */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; margin-bottom: 40px;
+  }
+  @media (max-width: 580px) { .rules-grid { grid-template-columns: 1fr; } }
+  .rule-card {
+    border-radius: 16px; padding: 24px 22px;
+    background: var(--white);
+    box-shadow: 0 3px 16px var(--border);
+    border-left: 5px solid var(--green);
+  }
+  .rule-card.dont { border-left-color: var(--red); }
+  .rule-header {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 14px;
+  }
+  .rule-icon { font-size: 18px; }
+  .rule-title { font-weight: 900; font-size: 14px; }
+  .rule-title.do   { color: var(--green-dark); }
+  .rule-title.dont { color: var(--red); }
+  .rule-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .rule-list li {
+    font-size: 13.5px; color: var(--text-muted);
+    display: flex; align-items: flex-start; gap: 8px;
+    line-height: 1.5;
+  }
+  .rule-list li::before {
+    content: '→'; flex-shrink: 0;
+    font-weight: 900; margin-top: 1px;
+  }
+  .rule-card.dont .rule-list li::before { content: '✕'; color: var(--red); }
+  .rule-card      .rule-list li::before { color: var(--green-dark); }
+
+  /* ─── APPLICATIONS ─── */
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 18px; margin-bottom: 40px;
+  }
+  .app-card {
+    border-radius: 18px;
+    background: var(--white);
+    box-shadow: 0 4px 20px var(--border);
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 36px rgba(13,31,78,.13);
+  }
+  .app-preview {
+    height: 120px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px;
+    position: relative; overflow: hidden;
+  }
+  .app-preview.digital  { background: linear-gradient(135deg, #0D1F4E 0%, #162a62 100%); }
+  .app-preview.print    { background: linear-gradient(135deg, #F4F8FF 0%, #e8eef8 100%); border-bottom: 1px solid var(--border); }
+  .app-preview.merch    { background: linear-gradient(135deg, #1A2B4A 0%, #2d3f6b 100%); }
+  .app-preview.sticker  { background: linear-gradient(135deg, #E0FAF7 0%, #b2f0ea 100%); }
+  .app-preview.social   { background: linear-gradient(135deg, #EDE7F6 0%, #d1c4e9 100%); }
+  .app-preview.cert     { background: linear-gradient(135deg, #FFF8E1 0%, #ffecb3 100%); border-bottom: 1px solid #ffe082; }
+  .app-info { padding: 14px 16px; }
+  .app-name { font-weight: 900; font-size: 14px; color: var(--navy); margin-bottom: 4px; }
+  .app-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ─── CLEAR SPACE ─── */
+  .clearspace-demo {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 24px var(--border);
+    display: flex; flex-direction: column; align-items: center;
+    gap: 16px; margin-bottom: 32px;
+  }
+  .clearspace-wrap {
+    position: relative;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 28px;
+    border: 2px dashed rgba(0,194,168,.5);
+    border-radius: 12px;
+  }
+  .clearspace-label {
+    position: absolute;
+    font-size: 9px; font-weight: 900;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--teal); opacity: .8;
+  }
+  .clearspace-label.top    { top: 6px; left: 50%; transform: translateX(-50%); }
+  .clearspace-label.bottom { bottom: 6px; left: 50%; transform: translateX(-50%); }
+  .clearspace-label.left   { left: 6px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+  .clearspace-label.right  { right: 6px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+  .clearspace-note { font-size: 13px; color: var(--text-muted); text-align: center; max-width: 420px; }
+
+  /* ─── MIN SIZES ─── */
+  .min-size-row {
+    display: flex; flex-wrap: wrap; gap: 24px;
+    align-items: flex-end; margin-bottom: 40px;
+  }
+  .min-size-item { text-align: center; }
+  .min-logo-wrap {
+    background: var(--offwhite);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .min-size-label {
+    font-size: 11px; font-weight: 900;
+    color: var(--text-muted); letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy);
+    padding: 28px 40px;
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-brand {
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px; color: var(--white);
+  }
+  .footer-brand span { color: var(--green); }
+  .footer-section { font-size: 12px; color: rgba(255,255,255,.4); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .footer-note { font-size: 11px; color: rgba(255,255,255,.35); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp .55s ease both; }
+  .hero .hero-eyebrow  { animation-delay: .08s; }
+  .hero .hero-title    { animation-delay: .18s; }
+  .hero .hero-sub      { animation-delay: .26s; }
+  .hero .hero-badge-row { animation-delay: .36s; }
+</style>
+</head>
+<body>
+
+<!-- ──────────────── HERO ──────────────── -->
+<header class="hero">
+  <p class="hero-eyebrow">Brand Guide · Section 02</p>
+  <h1 class="hero-title">Logo &amp; <span class="accent">Mascot</span></h1>
+  <p class="hero-sub">Visual Identity System</p>
+  <div class="hero-badge-row">
+    <span class="hero-badge active">Proto the Protean</span>
+    <span class="hero-badge">Color Palette</span>
+    <span class="hero-badge">Logo Lockups</span>
+    <span class="hero-badge">Usage Rules</span>
+    <span class="hero-badge">Applications</span>
+  </div>
+</header>
+
+<!-- ──────────────── STICKY NAV ──────────────── -->
+<nav class="tab-nav">
+  <button class="tab-btn active">Mascot</button>
+  <button class="tab-btn">Color Palette</button>
+  <button class="tab-btn">Logo Lockups</button>
+  <button class="tab-btn">Usage Rules</button>
+  <button class="tab-btn">Applications</button>
+</nav>
+
+<!-- ──────────────── PAGE ──────────────── -->
+<main class="page">
+
+  <!-- ═══ 1. MASCOT ═══ -->
+  <section class="section" id="mascot">
+    <p class="section-label">01 — Brand Character</p>
+    <h2 class="section-title">Proto the Protean</h2>
+    <p class="section-body">
+      Proto is the heart of Proteus Kids Sports. A <strong>shape-shifting, chameleon-inspired mascot</strong> drawn from the mythology of Proteus — the ancient sea god of change — Proto embodies adaptability, growth, and the idea that every child has unlimited potential. Proto isn't just a logo decoration; Proto is a <strong>living brand character</strong> who appears across every program, platform, and piece of merchandise.
+    </p>
+
+    <div class="mascot-hero-card">
+      <div class="mascot-left">
+        <div class="mascot-name-tag">Primary Mascot</div>
+        <div class="mascot-big-name">Proto the <span>Protean</span></div>
+        <div class="mascot-subtitle">Shape-Shifting Sports Champion</div>
+        <div class="mascot-traits">
+          <div class="trait-row">
+            <div class="trait-dot" style="background:var(--green)"></div>
+            <div class="trait-text"><strong>Chameleon-inspired</strong> — changes colour and form to suit any sport or setting</div>
+          </div>
+          <div class="trait-row">
+            <div class="trait-dot" style="background:var(--teal)"></div>
+            <div class="trait-text"><strong>Mythological roots</strong> — named for Proteus, Greek god of change and the sea</div>
+          </div>
+          <div class="trait-row">
+            <div class="trait-dot" style="background:var(--yellow)"></div>
+            <div class="trait-text"><strong>Universally inclusive</strong> — designed to resonate with every child, regardless of ability or background</div>
+          </div>
+          <div class="trait-row">
+            <div class="trait-dot" style="background:var(--orange)"></div>
+            <div class="trait-text"><strong>Growth-oriented</strong> — always learning, always improving, always smiling</div>
+          </div>
+        </div>
+      </div>
+      <div class="mascot-visual">
+        <div class="proto-svg-wrap">
+          <div class="proto-body">
+            <span class="proto-p">P</span>
+          </div>
+        </div>
+        <div class="mascot-motto">I Adapt. I Grow. <span>I Can Do Anything!</span></div>
+      </div>
+    </div>
+
+    <!-- Sport Variants -->
+    <h3 style="font-family:'Fredoka One',cursive;font-size:22px;color:var(--navy);margin-bottom:8px;">Sport-Specific Variants</h3>
+    <p class="section-body" style="margin-bottom:20px;">
+      Proto adapts — just like the kids we serve. Each sport unlocks a unique version of Proto, with sport-specific gear, colours, and attitude. This system makes Proto feel personal and collectible.
+    </p>
+    <div class="variants-grid">
+      <div class="variant-card">
+        <span class="variant-emoji">⚽</span>
+        <div class="variant-name">Proto Footy</div>
+        <span class="variant-accent-label v1">Grass Green</span>
+      </div>
+      <div class="variant-card">
+        <span class="variant-emoji">🏀</span>
+        <div class="variant-name">Proto Basketball</div>
+        <span class="variant-accent-label v2">Hoop Orange</span>
+      </div>
+      <div class="variant-card">
+        <span class="variant-emoji">🎾</span>
+        <div class="variant-name">Proto Tennis</div>
+        <span class="variant-accent-label v3">Court Teal</span>
+      </div>
+      <div class="variant-card">
+        <span class="variant-emoji">🏊</span>
+        <div class="variant-name">Proto Swim</div>
+        <span class="variant-accent-label v4">Pool Blue</span>
+      </div>
+      <div class="variant-card">
+        <span class="variant-emoji">🏏</span>
+        <div class="variant-name">Proto Cricket</div>
+        <span class="variant-accent-label v5">Pitch Red</span>
+      </div>
+      <div class="variant-card">
+        <span class="variant-emoji">🏃</span>
+        <div class="variant-name">Proto Athletics</div>
+        <span class="variant-accent-label v6">Track Purple</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 2. COLOR PALETTE ═══ -->
+  <section class="section" id="colors">
+    <p class="section-label">02 — Visual Language</p>
+    <h2 class="section-title">Color Palette</h2>
+    <p class="section-body">
+      The Proteus Kids Sports palette is built on a <strong>deep navy foundation</strong> with a dynamic gradient core — flowing from fresh green through teal into ocean blue — mirroring Proto's chameleon nature. Sport-specific accent colours extend the system for each variant context.
+    </p>
+
+    <div class="palette-grid">
+      <!-- Proto gradient -->
+      <div class="swatch-card">
+        <div class="swatch-color gradient-proto"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Proto Gradient</div>
+          <div class="swatch-hex">#3DD66B → #00C2A8 → #1565C0</div>
+          <div class="swatch-role">Mascot Signature</div>
+        </div>
+      </div>
+      <!-- Navy -->
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#0D1F4E"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Deep Navy</div>
+          <div class="swatch-hex">#0D1F4E</div>
+          <div class="swatch-role">Primary Background</div>
+        </div>
+      </div>
+      <!-- Teal -->
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#00C2A8"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Proto Teal</div>
+          <div class="swatch-hex">#00C2A8</div>
+          <div class="swatch-role">Primary Accent</div>
+        </div>
+      </div>
+      <!-- Green -->
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#3DD66B"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Protean Green</div>
+          <div class="swatch-hex">#3DD66B</div>
+          <div class="swatch-role">Highlight / Growth</div>
+        </div>
+      </div>
+      <!-- Orange -->
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#FF8C00"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Energy Orange</div>
+          <div class="swatch-hex">#FF8C00</div>
+          <div class="swatch-role">Sport Accent / CTA</div>
+        </div>
+      </div>
+      <!-- Yellow -->
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#FFD600"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Champion Yellow</div>
+          <div class="swatch-hex">#FFD600</div>
+          <div class="swatch-role">Achievement / Stars</div>
+        </div>
+      </div>
+      <!-- Purple -->
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#7B3FBE"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Mythic Purple</div>
+          <div class="swatch-hex">#7B3FBE</div>
+          <div class="swatch-role">Award / Premium</div>
+        </div>
+      </div>
+      <!-- White -->
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #eee"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Clean White</div>
+          <div class="swatch-hex">#FFFFFF</div>
+          <div class="swatch-role">Light Backgrounds</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gradient note -->
+    <div style="background:var(--navy);border-radius:16px;padding:24px 28px;color:rgba(255,255,255,.8);font-size:14px;line-height:1.7;max-width:680px;">
+      <strong style="color:var(--teal);font-size:12px;letter-spacing:2px;text-transform:uppercase;">Gradient Usage Note</strong><br />
+      The Proto Gradient (green → teal → blue) is reserved for Proto the mascot, the primary "P" icon, and hero-level design moments. It should <em>never</em> be used on body text or as a generic background fill. Sport-specific accent colours — orange, yellow, purple, red — are used sparingly as single-colour highlights, never blended into the gradient system.
+    </div>
+  </section>
+
+  <!-- ═══ 3. LOGO LOCKUPS ═══ -->
+  <section class="section" id="logo">
+    <p class="section-label">03 — Logo System</p>
+    <h2 class="section-title">Logo Lockups &amp; Variants</h2>
+    <p class="section-body">
+      The Proteus Kids Sports logo system has four approved configurations. Always use an approved lockup — never recreate or approximate the logo from scratch. Each variant is optimised for specific contexts and background treatments.
+    </p>
+
+    <div class="lockup-grid">
+
+      <!-- Primary lockup – light bg -->
+      <div class="lockup-card">
+        <div class="lockup-preview light-bg">
+          <div class="css-logo">
+            <div class="logo-icon">
+              <span class="p-letter">P</span>
+            </div>
+            <div class="logo-text-stack">
+              <div class="logo-proteus">PROTEUS</div>
+              <div class="logo-kids">KIDS</div>
+              <div class="logo-sports">SPORTS</div>
+            </div>
+          </div>
+        </div>
+        <div class="lockup-info">
+          <div class="lockup-title">Primary Lockup — Light</div>
+          <div class="lockup-desc">Default version for white/light backgrounds. Use on stationery, print documents, and light digital surfaces.</div>
+        </div>
+      </div>
+
+      <!-- Primary lockup – dark bg -->
+      <div class="lockup-card">
+        <div class="lockup-preview dark-bg">
+          <div class="css-logo">
+            <div class="logo-icon white-variant">
+              <span class="p-letter">P</span>
+            </div>
+            <div class="logo-text-stack">
+              <div class="logo-proteus light">PROTEUS</div>
+              <div class="logo-kids">KIDS</div>
+              <div class="logo-sports">SPORTS</div>
+            </div>
+          </div>
+        </div>
+        <div class="lockup-info">
+          <div class="lockup-title">Primary Lockup — Dark</div>
+          <div class="lockup-desc">Reversed for navy, dark, or photographic backgrounds. Wordmark is white; "KIDS" remains teal.</div>
+        </div>
+      </div>
+
+      <!-- Simplified icon only -->
+      <div class="lockup-card">
+        <div class="lockup-preview teal-bg">
+          <div class="logo-icon-only">
+            <span class="p-letter">P</span>
+          </div>
+        </div>
+        <div class="lockup-info">
+          <div class="lockup-title">Icon Only — Simplified</div>
+          <div class="lockup-desc">App icons, favicons, social media profile photos, embroidery, and small-format merch where the full wordmark cannot be read.</div>
+        </div>
+      </div>
+
+      <!-- Circular badge -->
+      <div class="lockup-card">
+        <div class="lockup-preview offwhite-bg">
+          <div style="width:90px;height:90px;border-radius:50%;border:3px solid var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--white);gap:1px;">
+            <span style="font-family:'Fredoka One',cursive;font-size:11px;color:var(--navy);letter-spacing:1.5px;">PROTEUS</span>
+            <span style="font-family:'Fredoka One',cursive;font-size:18px;color:var(--teal);line-height:1;">KIDS</span>
+            <span style="font-family:'Fredoka One',cursive;font-size:9px;color:var(--orange);letter-spacing:2px;">SPORTS</span>
+          </div>
+        </div>
+        <div class="lockup-info">
+          <div class="lockup-title">Circular Badge Lockup</div>
+          <div class="lockup-desc">Stickers, stamps, badges, and circular merchandise such as caps, keyrings, and coin-style awards.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Clear space -->
+    <h3 style="font-family:'Fredoka One',cursive;font-size:20px;color:var(--navy);margin-bottom:12px;">Clear Space &amp; Minimum Size</h3>
+    <div class="clearspace-demo">
+      <div class="clearspace-wrap">
+        <span class="clearspace-label top">1× height</span>
+        <span class="clearspace-label bottom">1× height</span>
+        <span class="clearspace-label left">1×</span>
+        <span class="clearspace-label right">1×</span>
+        <div class="css-logo">
+          <div class="logo-icon"><span class="p-letter">P</span></div>
+          <div class="logo-text-stack">
+            <div class="logo-proteus">PROTEUS</div>
+            <div class="logo-kids">KIDS</div>
+            <div class="logo-sports">SPORTS</div>
+          </div>
+        </div>
+      </div>
+      <p class="clearspace-note">
+        Always maintain a clear space equal to the <strong>height of the "P" icon</strong> on all four sides of the logo. No other graphic elements, text, or imagery may intrude into this zone.
+      </p>
+    </div>
+
+    <!-- Min sizes -->
+    <h3 style="font-family:'Fredoka One',cursive;font-size:20px;color:var(--navy);margin-bottom:16px;">Minimum Reproduction Sizes</h3>
+    <div class="min-size-row">
+      <div class="min-size-item">
+        <div class="min-logo-wrap" style="width:160px;height:50px;">
+          <div class="css-logo" style="transform:scale(.7);transform-origin:left center;">
+            <div class="logo-icon" style="width:28px;height:28px;border-radius:7px;"><span class="p-letter" style="font-size:17px;">P</span></div>
+            <div class="logo-text-stack"><div class="logo-proteus" style="font-size:13px;">PROTEUS</div><div class="logo-kids" style="font-size:8px;">KIDS</div><div class="logo-sports" style="font-size:6px;">SPORTS</div></div>
+          </div>
+        </div>
+        <div class="min-size-label">Print min: 25mm wide</div>
+      </div>
+      <div class="min-size-item">
+        <div class="min-logo-wrap" style="width:100px;height:50px;">
+          <div class="logo-icon-only" style="width:34px;height:34px;"><span class="p-letter" style="font-size:20px;">P</span></div>
+        </div>
+        <div class="min-size-label">Icon min: 24px digital</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4. USAGE RULES ═══ -->
+  <section class="section" id="rules">
+    <p class="section-label">04 — Guidelines</p>
+    <h2 class="section-title">Logo Usage Rules</h2>
+    <p class="section-body">
+      Consistent, correct logo usage protects the integrity of the Proteus brand. The following dos and don'ts apply to all internal teams, licensees, partner schools, and suppliers.
+    </p>
+
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-header">
+          <span class="rule-icon">✅</span>
+          <span class="rule-title do">Always Do</span>
+        </div>
+        <ul class="rule-list">
+          <li>Use approved logo files from the brand asset library</li>
+          <li>Maintain minimum clear space on all sides</li>
+          <li>Use the dark variant on navy or dark photography</li>
+          <li>Use the icon-only lockup when space is under 25mm wide</li>
+          <li>Apply the circular badge on round merch surfaces</li>
+          <li>Ensure sufficient contrast — minimum 4.5:1 ratio</li>
+          <li>Use the icon gradient exactly as supplied (never recolour)</li>
+        </ul>
+      </div>
+      <div class="rule-card dont">
+        <div class="rule-header">
+          <span class="rule-icon">🚫</span>
+          <span class="rule-title dont">Never Do</span>
+        </div>
+        <ul class="rule-list">
+          <li>Stretch, squeeze, or distort the logo proportions</li>
+          <li>Recreate the wordmark in a different typeface</li>
+          <li>Place the logo on a clashing or low-contrast background</li>
+          <li>Add drop shadows, glows, or unauthorised effects</li>
+          <li>Rotate or tilt the logo at any angle</li>
+          <li>Use the full wordmark at sizes below the minimum</li>
+          <li>Combine the logo with other mascots or brand marks</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. APPLICATIONS ═══ -->
+  <section class="section" id="applications">
+    <p class="section-label">05 — Usage Contexts</p>
+    <h2 class="section-title">Digital, Print &amp; Merchandise Applications</h2>
+    <p class="section-body">
+      The Proteus visual identity has been designed to flex across every touchpoint — from a phone screen to a sports bag, from a classroom certificate to a social media thumbnail. The following applications are approved and actively deployed.
+    </p>
+
+    <div class="app-grid">
+      <div class="app-card">
+        <div class="app-preview digital">📱</div>
+        <div class="app-info">
+          <div class="app-name">Digital Platforms</div>
+          <div class="app-desc">Website, app UI, booking pages, email headers, digital report cards. Use the dark lockup on navy; icon-only at favicon size.</div>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-preview social">📲</div>
+        <div class="app-info">
+          <div class="app-name">Social Media</div>
+          <div class="app-desc">Profile images use icon-only circular variant. Post templates use full lockup at top-left with Proto centre-stage. Holiday promo banners use full gradient treatment.</div>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-preview print">📄</div>
+        <div class="app-info">
+          <div class="app-name">Print & Signage</div>
+          <div class="app-desc">Banners, flyers, program booklets, venue signage. Full primary lockup at minimum 25mm. CMYK colour profiles supplied separately.</div>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-preview cert">🏅</div>
+        <div class="app-info">
+          <div class="app-name">Certificates & Reports</div>
+          <div class="app-desc">Achievement, milestone, and program-completion certificates. Sport-specific Proto variant appears alongside the logo. Progress report templates use the light lockup.</div>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-preview sticker">⭐</div>
+        <div class="app-info">
+          <div class="app-name">Stickers & Stamps</div>
+          <div class="app-desc">Collectible sticker series uses sport Proto variants with value-word rings (Teamwork, Effort, Courage, Focus). Reward stamps use the circular badge lockup.</div>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-preview merch">👕</div>
+        <div class="app-info">
+          <div class="app-name">Merchandise</div>
+          <div class="app-desc">T-shirts, caps, water bottles, bags, keyrings. Icon-only on small items; full lockup on apparel chest/back. Embroidery uses single-colour navy or white version.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Application notes -->
+    <div style="background:var(--navy);border-radius:20px;padding:32px 36px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+      <div>
+        <div style="font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;">Embroidery &amp; Screen Print</div>
+        <p style="font-size:13.5px;color:rgba(255,255,255,.78);line-height:1.65;">
+          Always use the single-colour white or navy version for embroidery. The gradient cannot be faithfully reproduced in thread. For screen printing under 30mm, use icon-only.
+        </p>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:10px;">File Formats Supplied</div>
+        <p style="font-size:13.5px;color:rgba(255,255,255,.78);line-height:1.65;">
+          SVG (scalable, web), PNG (transparent background, screen), EPS (print production), PDF (presentations). All variants included in the brand asset pack.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ──────────────── FOOTER ──────────────── -->
+<footer class="footer">
+  <div class="footer-brand">Proteus <span>Kids</span> Sports</div>
+  <div class="footer-section">Section 02 — Logo &amp; Mascot</div>
+  <div class="footer-note">Brand Guide · Confidential · 2024</div>
+</footer>
+
+<script>
+  // Tab nav — smooth section switching highlight
+  const tabs = document.querySelectorAll('.tab-btn');
+  tabs.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
